@@ -1,5 +1,6 @@
 package com.example.hellotoast;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,8 +24,7 @@ public class MainActivity extends AppCompatActivity {
         mShowCount = (TextView) findViewById(R.id.show_count);
     }
     public void showToast(View view) {
-        Toast toast = Toast.makeText(this, R.string.toast_message,
-                Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, R.string.toast_message,Toast.LENGTH_SHORT);
         toast.show();
 
         Intent intent = new Intent(this, SecondActivity.class);
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+    @SuppressLint("SetTextI18n")
     public void countUp(View view) {
         mCount++;
         if (mShowCount != null)
